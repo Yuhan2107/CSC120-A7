@@ -25,7 +25,12 @@ public class Cafe extends Building implements CafeRequirements{
         System.out.println("You have built a cafe: ☕");
     }
     
-
+    /*
+     * subtract the gradient amount as a cup of coffee is sold out
+     * @param size The ounce number of the cup of coffee that been sold
+     * @param nSugarPackets The number of sugar packet this cup of coffee is comsuming
+     * @param nCreams The amount of cream this cup of coffee is consuming
+     */
     @Override 
     public void sellCoffee(int size, int nSugarPackets, int nCreams){
         this.nCoffeeOunces -= size;
@@ -47,6 +52,9 @@ public class Cafe extends Building implements CafeRequirements{
         this.nCups = nCups;
     }
 
+    /*
+     * make up a cafe building and sell a coffee to check the previous methods
+     */
     public static void main(String[] args) {
         Cafe compass = new Cafe("Compass Cafe", "7 Neilson Drive", 2, 1000, 100, 100, 100);
         compass.sellCoffee(16, 2, 3);

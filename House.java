@@ -7,7 +7,7 @@ public class House extends Building implements HouseRequirements {
   private ArrayList<Student> residents;
   private boolean hasDiningRoom;
 
-  /*
+  /**
    * constructor for the House
    * @param name Name of the house
    * @param adress Adress of the house
@@ -21,7 +21,7 @@ public class House extends Building implements HouseRequirements {
     System.out.println("You have built a house: 🏠");
   }
 
-  /*
+  /**
    * return whether the house has dining room
    * @return Whether the house has dining room
    */
@@ -30,7 +30,7 @@ public class House extends Building implements HouseRequirements {
     return this.hasDiningRoom;
   } 
 
-  /*
+  /**
    * return the number of residents in this house
    * @return The number of residents in this house
    */
@@ -39,7 +39,7 @@ public class House extends Building implements HouseRequirements {
     return residents.size();
   }
 
-  /*
+  /**
    * add a new student into the arraylist as the student moves into the house
    * @param s The new student that moves in
    */
@@ -48,7 +48,7 @@ public class House extends Building implements HouseRequirements {
     residents.add(s);
   }
 
-  /*
+  /**
    * delete the student from the arraylist when the students moves out
    * @param s The students moving out
    */
@@ -58,7 +58,7 @@ public class House extends Building implements HouseRequirements {
     return s; // return the Student who moved out
   }
   
-  /*
+  /**
    * check whether the student is living in this house
    * @param s The students checking
    * @return whether the student is living in this house (contains in the arraylist)
@@ -68,7 +68,7 @@ public class House extends Building implements HouseRequirements {
     return residents.contains(s);
   }
   
-  /*
+  /**
    * make up a house and a students to check methods written above
    */
   public static void main(String[] args) {

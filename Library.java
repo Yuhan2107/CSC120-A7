@@ -7,7 +7,7 @@ public class Library extends Building implements LibraryRequirements {
   private Hashtable<String, Boolean> collection;
   private String status;
 
-    /*
+    /**
      * constructor of the library
      * @param name Name of library
      * @param address Address of library
@@ -20,7 +20,7 @@ public class Library extends Building implements LibraryRequirements {
       System.out.println("You have built a library: 📖");
     }
     
-    /* 
+    /**
      * add a book into the library
      * @param title The title of the new book 
      */
@@ -29,7 +29,7 @@ public class Library extends Building implements LibraryRequirements {
       collection.put(title, true);
     }
 
-    /*
+    /**
      * remove a book from the library
      * @param title The name of the removal book
      * @return The title of the book that's been removed
@@ -40,7 +40,7 @@ public class Library extends Building implements LibraryRequirements {
       return title; // return the title that we removed
     }
 
-    /*
+    /**
      * checkout the book from the library
      * @param title The title of the book being checked out
      */
@@ -49,7 +49,7 @@ public class Library extends Building implements LibraryRequirements {
       collection.replace(title,false);
     }
 
-    /*
+    /**
      * return a book to the library
      * @param title The returning book's title
      */
@@ -58,7 +58,7 @@ public class Library extends Building implements LibraryRequirements {
       collection.replace(title, true);
     }
 
-    /*
+    /**
      * returns true if the title appears as a key in the Libary's collection, false otherwise
      * @param title The title of the book that is being checked
      * @return Whether the book is in the library
@@ -68,7 +68,7 @@ public class Library extends Building implements LibraryRequirements {
       return collection.containsKey(title);
     }
 
-    /*
+    /**
      * returns true if the title is currently available, false otherwise
      * @param title The title of the book is being checked
      * @return The status of the book -- whether it is available now
@@ -78,7 +78,7 @@ public class Library extends Building implements LibraryRequirements {
       return collection.getOrDefault(title, false);
     }
 
-    /*
+    /**
      * prints out the entire collection in an easy-to-read way (including checkout status
      */
     @Override 
@@ -93,7 +93,7 @@ public class Library extends Building implements LibraryRequirements {
       }
     }
 
-    /*
+    /**
      * make up a library and check the methods under this class 
      */
     public static void main(String[] args) {

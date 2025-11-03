@@ -6,7 +6,7 @@ public class Cafe extends Building implements CafeRequirements{
     private int nCreams; // The number of "splashes" of cream remaining in inventory
     private int nCups; // The number of cups remaining in inventory
 
-    /*
+    /**
     * Contructor of the Cafe
     * @Param name Name of Cafe
     * @param address Address of Cafe
@@ -25,7 +25,7 @@ public class Cafe extends Building implements CafeRequirements{
         System.out.println("You have built a cafe: ☕");
     }
     
-    /*
+    /**
      * subtract the gradient amount as a cup of coffee is sold out
      * @param size The ounce number of the cup of coffee that been sold
      * @param nSugarPackets The number of sugar packet this cup of coffee is comsuming
@@ -38,7 +38,7 @@ public class Cafe extends Building implements CafeRequirements{
         this.nCreams -= nCreams;
     }
 
-    /*
+    /**
      * this method is to restock the ingredients and cups
      * @param nCoffeeOunce New number of coffee ounce
      * @param nSugarPacket New number of sugar packet
@@ -52,7 +52,7 @@ public class Cafe extends Building implements CafeRequirements{
         this.nCups = nCups;
     }
 
-    /*
+    /**
      * make up a cafe building and sell a coffee to check the previous methods
      */
     public static void main(String[] args) {

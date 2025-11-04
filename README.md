@@ -112,6 +112,8 @@ public void returnBook(String title);
 ```
 _Hint: use the functions provided by the [`Hashtable`](https://docs.oracle.com/javase/8/docs/api/java/util/Hashtable.html) class to make this much easier! Specifically, check out `put(...)`, `remove(...)`, and `replace(...)`._
 
+In this specific implementation, a Library can only have _one_ copy of a title. 
+
 ---
 4. For good measure, we'll also write a couple of methods to support browsing the collection:
 ```
@@ -136,7 +138,7 @@ private int nCups; // The number of cups remaining in inventory
 ```
 
 ---
-1. Make the `Cafe` class `extend` the `Building` class, add the attributes listed above, and modify the `Cafe` constructor to set the starting values of each of the stocked items (coffee, sugar, cream, and cups).
+1. Make the `Cafe` class `extend` the `Building` class, add the attributes listed above, and modify the `Cafe` constructor to set the starting values of each of the stocked items (coffee, sugar, cream, and cups). You may find it useful to add additional attributes to the Cafe class. That is fine, but remember the constructor should be modified to _only_ additionally include parameters for the four attributes listed above. 
 
 ---
 2. Make sure `Cafe implements CafeRequirements`. Details for required methods are below. 

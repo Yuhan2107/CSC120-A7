@@ -45,7 +45,11 @@ public class House extends Building implements HouseRequirements {
    */
   @Override
   public void moveIn(Student s){
-    residents.add(s);
+    if (residents.contains(s)){
+      System.out.println("This student is already in this house.");
+    }else{
+      residents.add(s);
+    }
   }
 
   /**
@@ -54,7 +58,11 @@ public class House extends Building implements HouseRequirements {
    */
   @Override
   public Student moveOut(Student s){
-    residents.remove(s);
+    if(!residents.contains(s)){
+      System.out.println("This student is not in this house originally.");
+    }else{
+      residents.remove(s);
+    }
     return s; // return the Student who moved out
   }
   

@@ -65,7 +65,16 @@ public class Library extends Building implements LibraryRequirements {
      */
     @Override
     public boolean containsTitle(String title){
-      return collection.containsKey(title);
+      if (collection.containsKey(title)){
+        if (collection.get(title)){
+          return true;
+        }else{
+          System.out.println("This book has been checked out.");
+          return false;
+        }
+      }else{
+        return false;
+      }
     }
 
     /**

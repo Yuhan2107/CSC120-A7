@@ -33,9 +33,15 @@ public class Cafe extends Building implements CafeRequirements{
      */
     @Override 
     public void sellCoffee(int size, int nSugarPackets, int nCreams){
-        this.nCoffeeOunces -= size;
-        this.nSugarPackets -= nSugarPackets;
-        this.nCreams -= nCreams;
+        if (nCoffeeOunces >= size && this.nSugarPackets >= nSugarPackets && this.nCreams >= nCreams){
+            this.nCoffeeOunces -= size;
+            this.nSugarPackets -= nSugarPackets;
+            this.nCreams -= nCreams;
+            this.nCups--;
+        }else{
+            System.out.println("The recent stock is not enough to make this cup of coffee, please restock the inventory first.");
+        }
+        
     }
 
     /**

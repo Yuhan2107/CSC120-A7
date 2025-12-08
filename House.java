@@ -1,5 +1,6 @@
-/* This is a stub for the House class */
-
+/**
+ * Represents a House building that can track student residents and whether it has a dining room.
+ */
 import java.util.ArrayList;
 
 public class House extends Building implements HouseRequirements {
@@ -8,11 +9,11 @@ public class House extends Building implements HouseRequirements {
   private boolean hasDiningRoom;
 
   /**
-   * constructor for the House
-   * @param name Name of the house
-   * @param adress Adress of the house
-   * @param nFloors Number of floors the house has
-   * @param hasDiningRoom Whether the house has dining room
+   * Constructs a House.
+   * @param name the name of the house
+   * @param address the address of the house
+   * @param nFloors the number of floors the house has
+   * @param hasDiningRoom whether the house has a dining room
    */
   public House(String name, String address, int nFloors, boolean hasDiningRoom) {
     super(name, address, nFloors);
@@ -22,8 +23,8 @@ public class House extends Building implements HouseRequirements {
   }
 
   /**
-   * return whether the house has dining room
-   * @return Whether the house has dining room
+   * Returns whether this house has a dining room.
+   * @return {@code true} if this house has a dining room; {@code false} otherwise
    */
   @Override
   public boolean hasDiningRoom(){
@@ -31,8 +32,8 @@ public class House extends Building implements HouseRequirements {
   } 
 
   /**
-   * return the number of residents in this house
-   * @return The number of residents in this house
+   * Returns the number of current residents in this house.
+   * @return the number of residents
    */
   @Override
   public int nResidents(){
@@ -40,8 +41,8 @@ public class House extends Building implements HouseRequirements {
   }
 
   /**
-   * add a new student into the arraylist as the student moves into the house
-   * @param s The new student that moves in
+   * Adds a student to this house's residents list.
+   * @param s the student who moves in
    */
   @Override
   public void moveIn(Student s){
@@ -53,23 +54,24 @@ public class House extends Building implements HouseRequirements {
   }
 
   /**
-   * delete the student from the arraylist when the students moves out
-   * @param s The students moving out
+   * Removes the student from this house when they move out.
+   * @param s the student moving out
+   * @return the student who moved out
+   * @throws IllegalArgumentException if the student is not a resident of this house
    */
   @Override
   public Student moveOut(Student s){
-    if(!residents.contains(s)){
-      System.out.println("This student is not in this house originally.");
-    }else{
-      residents.remove(s);
+    if (!residents.contains(s)) {
+      throw new IllegalArgumentException("This student is not in this house.");
     }
+    residents.remove(s);
     return s; // return the Student who moved out
   }
   
   /**
-   * check whether the student is living in this house
-   * @param s The students checking
-   * @return whether the student is living in this house (contains in the arraylist)
+   * Checks whether the given student is a resident of this house.
+   * @param s the student to check
+   * @return {@code true} if the student is a resident; {@code false} otherwise
    */
   @Override
   public boolean isResident(Student s){
@@ -77,7 +79,7 @@ public class House extends Building implements HouseRequirements {
   }
   
   /**
-   * make up a house and a students to check methods written above
+   * Simple smoke test for `House` methods.
    */
   public static void main(String[] args) {
     House haven = new House("haven", "110ElmSt", 3, false);

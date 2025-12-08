@@ -1,5 +1,7 @@
-/* This is a stub for the Library class */
-
+/**
+ * Represents a Library with a collection of titles and availability tracking.
+ * Each title is stored with a boolean: true means available, false means checked out.
+ */
 import java.util.Hashtable;
 
 public class Library extends Building implements LibraryRequirements {
@@ -8,21 +10,21 @@ public class Library extends Building implements LibraryRequirements {
   private String status;
 
     /**
-     * constructor of the library
-     * @param name Name of library
-     * @param address Address of library
-     * @param nFloors Number of floors in the library
+     * Constructs a Library with the given name, address, and number of floors.
+     * @param name the library name
+     * @param address the library address
+     * @param nFloors the number of floors in the library
      */
     public Library(String name, String address, int nFloors) {
       super(name, address, nFloors);
       this.collection = new Hashtable<>();
-      String status = "unavailable";
+      this.status = "unavailable";
       System.out.println("You have built a library: 📖");
     }
     
     /**
-     * add a book into the library
-     * @param title The title of the new book 
+     * Adds a title to the library collection and marks it available.
+     * @param title the title to add
      */
     @Override
     public void addTitle(String title){
@@ -30,9 +32,9 @@ public class Library extends Building implements LibraryRequirements {
     }
 
     /**
-     * remove a book from the library
-     * @param title The name of the removal book
-     * @return The title of the book that's been removed
+     * Removes a title from the collection.
+     * @param title the title to remove
+     * @return the removed title (same as {@code title})
      */
     @Override
     public String removeTitle(String title){
@@ -41,8 +43,9 @@ public class Library extends Building implements LibraryRequirements {
     }
 
     /**
-     * checkout the book from the library
-     * @param title The title of the book being checked out
+     * Checks out the given title (marks it unavailable).
+     * If the title is not present, this method does nothing.
+     * @param title the title to check out
      */
     @Override
     public void checkOut(String title){
@@ -50,8 +53,9 @@ public class Library extends Building implements LibraryRequirements {
     }
 
     /**
-     * return a book to the library
-     * @param title The returning book's title
+     * Returns a book to the library (marks it available).
+     * If the title is not present, this method does nothing.
+     * @param title the title to return
      */
     @Override
     public void returnBook(String title){
@@ -59,9 +63,10 @@ public class Library extends Building implements LibraryRequirements {
     }
 
     /**
-     * returns true if the title appears as a key in the Libary's collection, false otherwise
-     * @param title The title of the book that is being checked
-     * @return Whether the book is in the library
+     * Returns true if the given title exists in the collection and is available.
+     * @param title the title to check
+     * @return {@code true} if the title exists and is available; {@code false} if the title is not in the collection
+     * @throws IllegalArgumentException if the title exists but is currently checked out
      */
     @Override
     public boolean containsTitle(String title){
@@ -69,8 +74,7 @@ public class Library extends Building implements LibraryRequirements {
         if (collection.get(title)){
           return true;
         }else{
-          System.out.println("This book has been checked out.");
-          return false;
+          throw new IllegalArgumentException("This book is already checked out.");
         }
       }else{
         return false;
@@ -78,9 +82,9 @@ public class Library extends Building implements LibraryRequirements {
     }
 
     /**
-     * returns true if the title is currently available, false otherwise
-     * @param title The title of the book is being checked
-     * @return The status of the book -- whether it is available now
+     * Returns whether the given title is currently available.
+     * @param title the title to check
+     * @return {@code true} if the title exists and is available; {@code false} if it is absent or checked out
      */
     @Override 
     public boolean isAvailable(String title){
@@ -88,7 +92,7 @@ public class Library extends Building implements LibraryRequirements {
     }
 
     /**
-     * prints out the entire collection in an easy-to-read way (including checkout status
+     * Prints the entire collection, showing each title and its availability status.
      */
     @Override 
     public void printCollection(){
@@ -96,7 +100,7 @@ public class Library extends Building implements LibraryRequirements {
         if (collection.get(title)){
           status = "available";
         }else{
-          status = "chacked out";
+          status = "checked out";
         }
         System.out.println(" - " + title + " [ " + status + " ];");
       }
